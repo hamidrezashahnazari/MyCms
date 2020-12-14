@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DataLayer.News>
+@{
+    ViewBag.Title = "Home Page";
+}
+@Html.Action("ShowInSlider", "Home")
+@*@Html.Action("ShowLatestNews","News")*@
+<section class="last-news-section border-radius margin-top-60">
+    <header><i class="icons icon-doc-2"></i>  <h3>آخرین اخبار </h3> </header>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <img class="border-radius" src="~/NewsImages/@item.ImageName">
+                <h2> <a href="/News/@item.NewsID">@item.Tittle</a></h2>
+                <p>
+                    @item.ShortDescription
+                </p>
+                <span class="date-publish"><i class="fa fa-calendar"></i> انتشار : @item.UploadDate.ToShamsi() </span>
+                <a href="" class="more-link"><i class="icons icon-more"></i></a>
+            </li>
+        }
+
+    </ul>
+</section>
+
+<div class="row text-center">
+    <nav>
+        <ul class="pagination">
+            <li class="disabled"><a aria-label="Previous" href="#"><span aria-hidden="true"><<</span></a></li>
+
+            @for (int i = 1; i <= ViewBag.Count + 1; i++)
+            {
+                <li class="@(((int)ViewBag.NewsId==i)?"active":"")"><a href="/Home/Index?pageId=@i">@i<span class="sr-only"></span></a></li>
+            }
+        </ul>
+    </nav>
+</div>

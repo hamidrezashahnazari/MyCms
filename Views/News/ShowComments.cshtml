@@ -1,0 +1,16 @@
+﻿@model IEnumerable<DataLayer.NewsComment>
+
+    <!-- start each comment -->
+    @foreach (var item in Model)
+    {
+        <li>
+            <img src="~/Content/img/User.png">
+            <div>
+                <span>@item.Name</span>
+                <span>@item.SubmitDate.ToShamsi()</span>
+            </div>
+            <p>@item.Comment</p>
+        </li>
+    }
+
+    <!-- end each comment -->

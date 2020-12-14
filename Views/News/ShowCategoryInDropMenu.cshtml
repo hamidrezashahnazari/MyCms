@@ -1,0 +1,8 @@
+﻿@model IEnumerable<DataLayer.Category>
+<span>گروه های خبری</span>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a href="/Category/@item.CategoryID/@item.CatTittle">@item.CatTittle</a></li>
+    }
+</ul>

@@ -1,0 +1,30 @@
+﻿@model DataLayer.Category
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>آیا از حذف گروه @Model.CatTittle مطمئن هستید؟</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CatTittle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatTittle)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions ">
+            <input type="submit" value="حذف" class="btn btn-danger" />
+        </div>
+    }
+</div>
